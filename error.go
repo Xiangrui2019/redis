@@ -50,7 +50,6 @@ func IsBadConn(err error, allowTimeout bool) bool {
 	}
 
 	if IsRedisError(err) {
-		// #790
 		return IsReadOnlyError(err)
 	}
 
