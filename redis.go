@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/xiangrui2019/net/pool"
-	"redis/protocol"
+	"github.com/xiangrui2019/redis/protocol"
 )
 
 const (
