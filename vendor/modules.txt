@@ -1,0 +1,2 @@
+# github.com/xiangrui2019/net/pool v0.0.0-20190615101352-360fdf3989c0
+github.com/xiangrui2019/net/pool/
