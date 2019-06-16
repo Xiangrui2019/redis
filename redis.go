@@ -17,13 +17,18 @@ const (
 
 type Options struct {
 	Address      string
+	// 连接池大小
 	PoolSize     int
+	// 最小空闲连接数
 	MinIdleConns int
-
+	// 一个连接的超时时间
+	// 防止过多的链接导致Redis崩溃
 	MaxConnAge  time.Duration
+	// 链接池获取的超时时间
 	PoolTimeout time.Duration
+	// 空闲链接的超时时间
 	IdleTimeout time.Duration
-
+	// 超时空闲连接的清理间隔时间
 	IdleCheckFrequency time.Duration
 
 	OnPreCmd  func(context.Context, []interface{}) context.Context
