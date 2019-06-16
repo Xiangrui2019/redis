@@ -207,6 +207,22 @@ func (c *Client) MGet(ctx context.Context, keys []string) (items map[string]*Ite
 	return
 }
 
+func (c *Client) Ping(ctx context.Context) error {
+	err := c.Set(ctx, &Item{Key: "ping", Value: []byte("pinging")})
+
+	if err != nil {
+		return err
+	}
+
+	_, err = c.Get(ctx, "ping")
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (c *Client) Set(ctx context.Context, item *Item) error {
 	args := make([]interface{}, 0, 6)
 	args = append(args, "set", item.Key, item.Value)

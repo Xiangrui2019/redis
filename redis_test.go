@@ -188,6 +188,19 @@ func TestOnCmd(t *testing.T) {
 	c.Set(ctx, &Item{Key: "foo", Value: []byte("123"), Flags: FlagXX})
 }
 
+func TestPing(t *testing.T) {
+	c := New(Options{
+		Address:  os.Getenv("REDIS_HOST"),
+		PoolSize: 1,
+	})
+
+	err := c.Ping(ctx)
+
+	if err != nil {
+		t.Fatal("Ping faild")
+	}
+}
+
 func TestMget(t *testing.T) {
 	c := New(Options{
 		Address:  os.Getenv("REDIS_HOST"),
